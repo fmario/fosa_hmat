@@ -1,0 +1,183 @@
+\chapter{Lineare Algebra}
+
+\section{Vektorraum}
+
+Ein Vektorraum $V$ besteht aus einer Menge von Vektoren und den zwei Operationen:
+\begin{enumerate}
+	\item Vektoren können addiert/subtrahiert werden
+	\item Vektoren können mit einem Skalar multipliziert werden
+\end{enumerate}
+Die Ergebnisse aus den beiden Operationen müssen wieder im Vektorraum liegen.
+\\\\
+Weitere Bedingungen:
+\begin{itemize}
+	\item Es gibt einen Nullvektor $0\in V$ mit $v+0=v$ für alle Vektoren $v\in V$
+	\item Zu jedem Vektor $v \in V$ gibt es einen inversen Vektor $-v\in V$ mit $v-v=0$
+\end{itemize}
+
+\section{Lineare Unabhängigkeit, Basis und Dimension}
+\subsection{Linearkombination von Vektoren:}
+\[
+	v = \lambda_1 \cdot v_1 + \lambda_2 \cdot v_2 + \ldots + \lambda_n \cdot v_n
+\]
+~\\
+\begin{footnotesize}
+	$v_1,v_2,\ldots,v_n \in V$\\
+	$\lambda_1,\lambda_2,\ldots,\lambda_n \in \mathds{R}$\\
+\end{footnotesize}
+
+\subsection{Lineare Unabhängigkeit}
+$n$ Vektoren sind linear unabhängig, wenn
+\[
+	\lambda_1 \cdot v_1 + \lambda_2 \cdot v_2 + \ldots + \lambda_n \cdot v_n = 0
+\]
+nur mit
+\[
+	\lambda_1 = \lambda_2 = \ldots = \lambda_n = 0
+\]
+erreicht ist.\\
+\begin{center}
+\boxed{\mbox{$n$ Vektoren in $\mathds{R}^m$ sind linear abhängig, falls $n>m$.}}
+\end{center}
+
+\subsection{Basis, Dimension und Koordinaten}
+Die \textit{Basis} eines Vektorraums ist die Menge vn Vektoren $v_1,v_2,\ldots,v_n$
+(\textit{Basisvektoren}), die:
+\begin{enumerate}
+	\item linear unabhängig sind
+	\item den gesamten Vektorraum durch Linearkombination erzeugen
+\end{enumerate}
+
+\begin{center}
+\boxed{\mbox{Die Dimension des Vektorraums $\mathds{R}^n$ ($\dim V$) ist $n$}}
+\end{center}
+Die \textit{Koordinaten} sind die Koeffizienten $\lambda_1$ bis $\lambda_n$ der Linearkombination
+der Basen, um den gewünschten Vektor zu erreichen.
+\\\\
+Polynom vom Grad $n$ hat die Basis:
+\[ \mathds{P}:\lbrace x^n,x^{n-1}\ldots,x,1 \rbrace \qquad\Rightarrow \dim\mathds{P}_n=n+1 \]
+
+\subsection{Untervektorraum}
+\textbf{Definition:} Ein Unterraum ist eine Teilmenge eines Vektorraums, die selbst
+einen Vektorraum bildet.\\
+\\
+\textbf{Satz:} Ist $V$ ein Vektorraum mit Dimension $n$, so gibt es für jedes
+$k\in\lbrace 0,1,\ldots,n\rbrace$ einen Unterraum der Dimension $k$.
+
+\section{Lineare Abbildung zwischen Vektorräumen}
+Eine Abbildung
+\[
+	f:V_1 \longrightarrow V_2
+\]
+zwischen Vektorräumen $V_1$ und $V_2$ ist \textit{linear}, falls
+\begin{enumerate}
+	\item $f(\lambda\cdot v) = \lambda\cdot f(v)$ für jeden Vektor $v\in V_1$ und jeden
+		Skalar $\lambda\in\mathds{R}$
+	\item $f(v+w)=f(v)+f(w)$ für alle Vektoren $v,w \in V_1$
+\end{enumerate}
+~\\
+Ist $f: V_1 \longrightarrow V_2$ eine lineare Abbildung, so bleibt der Nullpunkt fest:
+\[ f(0) = 0 \]
+\textbf{Achtung:} Umkehrung gilt nicht. D.h. $f(0)=0$ bedeutet nicht, dass $f$ linear ist.
+
+\subsection{Matrix einer linearen Abbildung}
+Für die Abbildung $f:\mathds{R}^n \rightarrow \mathds{R}^m$ mit den Basisvektoren
+$e_1,e_2,\ldots,e_n$ gibt es eine ($m\times n$)-Matrix \textbf{A}, so dass
+\[ f(x) = \textbf{A} \cdot x \]
+Die Spalten der Matrix \textbf{A} sind die Bilder $v_i = f(e_i)$ der Einheitsvektoren.
+\\
+Die Abbildung ist umkehrbar, wenn
+\[ \det(\textbf{A}) \neq 0 \]
+\\\\
+\textbf{Satz}\\
+Jeder linearen Abbildung $f:\mathds{R}^n \rightarrow\mathds{R}^m$ kann auf eindeutige Weise
+eine $m\times n$-Matrix \textbf{A} zugeordnet werden, wobei deren Spalten der Reihe nach die
+Bilder $f(e_1),f(e_2),\ldots,f(e_n)$ der Standardbasis des $\mathds{R}^n$ sind.\\
+\\
+Ist umgekehrt eine $m\times n$-Matrix mit Spalten $v_1,v_2,\ldots,v_n\in\mathds{R}^m$,
+so ist die zugehörige lineare Abbildung durch die Vorschrift gegeben:
+\[ f: \begin{pmatrix} 	x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix} \longmapsto 
+	\sum_{i=1}^{n}x_i\cdot v_i \]
+	
+\subsection{Kern und Bild}
+Der \textit{Kern} der Abbildung $f$ besteht aus der Menge der Vektoren in $V_1$ die durch
+$f$ auf den Nullvektor in $V_2$ abgebildet werden:
+\[ \ker(f) := \lbrace x\in V_1|f(x)=0 \rbrace \]
+~\\
+Das \textit{Bild} der Abbildung $f$ ist die Menge der möglichen Bildvektoren in $V_2$:
+\[ \text{im}(f) := \lbrace y \in V_2|\text{es gibt ein }x\in V_1 \text{ mit } f(x)=y \rbrace \]
+~\\
+\textit{Kern} und \textit{Bild} von $f$ sind Untervektorräume von $V_1$ resp. $V_2$.
+\\\\
+\textbf{Dimensionssatz:} Das Bild und der Kern einer linearen Abbildung $f:V_1 \rightarrow V_2$
+stehen über den Dimensionssatz in Beziehung:
+\[ \dim(V_1) = \dim(\ker(f)) + \dim(\text{im}(f)) \]
+~\\
+\textbf{Umkehrbarkeit von linearen Abbildungen:} Falls die Dimensionen der betrachteten
+Räume $V_1$ und $V_2$ einer linearen Abbildung $f:V_1 \rightarrow V_2$ identisch sind,
+können die folgenden äquivalenten Aussagen zur Umkehrbarkeit von $f$ gemacht werden:
+\begin{enumerate}
+	\item[i)] Die Abbildung $f$ ist umkehrbar
+	\item[ii)] $\dim(\ker(f))=0$
+	\item[iii)] $\dim(\text{im}(f)) = \dim(V_2)$
+\end{enumerate}
+
+\subsection{Lineare Gleichungssysteme als lineare Abbildungen}
+Das Gleichungssystem mit $n$ Gleichungen und $n$ Unbekannten $x_1,x_2,\ldots,x_n$ der Form
+\[\begin{aligned}
+	a_{11}x_1 + a_{12}x_2 + \ldots + a_{1n}x_n &= b_1 \\
+	a_{21}x_1 + a_{22}x_2 + \ldots + a_{2n}x_n &= b_2 \\
+	\vdots &= \vdots\\
+	a_{n1}x_1 + a_{n2}x_2 + \ldots + a_{nn}x_n &= b_n
+\end{aligned}\]
+kann in Matrizenform als
+\[ \begin{pmatrix}
+		a_{11} & a_{12} & \ldots & a_{1n} \\
+		a_{21} & a_{22} & \ldots & a_{2n} \\
+		\vdots &				&				 & \vdots \\
+		a_{n1} & a_{n2} & \ldots & a_{nn} \\
+	\end{pmatrix} \cdot \begin{pmatrix}
+		x_1 \\ x_2 \\ \vdots \\ x_n
+	\end{pmatrix} = \begin{pmatrix}
+		b_1 \\ b_2 \\ \vdots \\ b_n
+	\end{pmatrix}\]
+oder kurz
+\[ \textbf{A} \cdot x = b \]
+geschrieben werden.\\
+\\
+\textbf{Lösbarkeit linearer Gleichungssystemen\\}
+Fall 1: ist $\det\textbf{A}\neq 0$ so ist $x$ eindeutig durch $\textbf{A}^{-1}\cdot b$
+gegeben.\\
+Fall 2: ist $\det\textbf{A}= 0$ so hat man entweder
+\begin{itemize}
+	\item[i)] keine Lösung, falls $b \notin\text{bild}\textbf{A}$
+	\item[ii)] unendlich viele Lösungen, falls $b \in\text{bild}\textbf{A}$
+\end{itemize}
+
+\section{Eigenwertprobleme}
+\subsection{Definition}
+Gegeben sein ein quadratische Matrix \textbf{A}. finde einen Vektor $x\neq 0$ und einen
+Skalar $\lambda$, so dass
+\[ \textbf{A} \cdot x = \lambda \cdot x \]
+
+\subsection{Berechnung der Eigenvektoren und Eigenwerte}
+\[ (\textbf{A}-\lambda\cdot\textbf{E})\cdot x=0 \]
+Dabei muss gelten:
+\[ \det(\textbf{A}-\lambda\cdot\textbf{E}) = 0 \]
+Nach der Bestimmung der Eigenwerte $\lambda_1,\lambda_2,\ldots,\lambda_n$ kann für
+jedes $\lambda_i$ ein Vektor $x_i\neq 0$ mit
+\[ (\textbf{A}-\lambda_i\cdot\textbf{E}) \cdot x_i = 0 \]
+gefunden werden.
+
+\subsection{Sätze zu Eigenwerten / -vektoren}
+\textbf{A} sei eine $n\times n$-Matrix.\\
+\begin{itemize}
+\item[\textbf{Satz 1:}] \textbf{A} kann höchstens $n$ Eigenwerte haben.\\
+\item[\textbf{Satz 2:}] Die Determinante von \textbf{A} ist gleich dem Produkt all ihrer
+	Eigenwerte. \[ \det A =  \lambda_1 \cdot \lambda_2 \cdot \ldots \cdot \lambda_n \]
+Ist ein Eigenwert = 0, so ist die Matrix singulär (nicht invertierbar).
+\item[\textbf{Satz 3:}] $\lim\limits_{n\rightarrow\infty}\textbf{A}=0$ falls für alle
+	Eigenwerte $\lambda_i$ gilt $|\lambda_i|<1$
+\item[\textbf{Satz 4:}] Bei einer Diagonalmatrix oder Dreiecksmatrix sind die
+	Diagonaleinträge gerade die Eigenwerte der Matrix.
+\end{itemize}
