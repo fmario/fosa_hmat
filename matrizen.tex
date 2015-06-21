@@ -1,0 +1,56 @@
+\chapter{Matrizen Repetition}
+\section{Grundbegriffe}
+$m\times n$-Matrix:
+\[ \textbf{A} = (a_{ij}) = \begin{pmatrix}
+	a_{11} & a_{12} & \ldots & a_{1n} \\
+	a_{21} & a_{22} & \ldots & a_{2n} \\
+	\vdots & \vdots & \ddots & \vdots \\
+	a_{m1} & a_{m2} & \ldots & a_{mn} \\
+\end{pmatrix} \]
+~\\
+\begin{footnotesize}
+\begin{tabular}{ll}
+	$a_{ij}:$	&	Matrixelement der Zeile $i$ und der Spalte $j$\\
+	$m:$			& Anzahl Zeilen \\
+	$n:$			& Anzahl Spalten
+\end{tabular}
+\end{footnotesize}
+~\\
+Transponierte Matrix $\textbf{A}^T$ von $A$:
+\[ (a_{ij})^T = a_{ji} \]
+Für das Produkt der Transponierten gilt:
+\[ (\textbf{A}\cdot\textbf{B})^T=\textbf{B}^T\cdot\textbf{A}^T \]
+
+\subsection{Spezielle Matrizen}
+\begin{itemize}
+	\item \textbf{Nullmatrix:} Alle Elemente der Matrix sind Null, $a_{ij}=0\ \forall i,j$
+	\item \textbf{Spaltenmatrix:} Die Matrix enthält nur eine Spalte
+		\[\textbf{A}=\begin{pmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{n1} \end{pmatrix}\]
+	\item \textbf{Zeilenmatrix:} Die Matrix enthält nur eine Zeile
+		\[\textbf{A}=\begin{pmatrix} a_{11} & a_{12} & \ldots & a_{1m} \end{pmatrix}\]
+	\item \textbf{Quadratische Matrix:} Gleiche Anzahl an Zeilen und Spalten.
+	\item \textbf{Symmetrische Matrix:} Quadratische Matrix, welche mit ihrer Transponierten
+		übereinstimmen ($\textbf{A}=\textbf{A}^T$).
+		\[ a_{ij} = a_{ji}\ \forall i,j \]
+	\item \textbf{Dreiecksmatrix:} Alle Elemente die unter oder über der Hauptdiagonalen stehen
+		sind Null.
+	\item \textbf{Diagonalmatrix:} Alle Elemente ausserhalb der Hauptdiagonalen sind Null.\\
+		Spezialfall ist die \textbf{Einheitsmatrix E}
+\end{itemize}
+
+\section{Grundoperationen}
+Addition und Subtraktion zweier Matrizen \textbf{A} und \textbf{B}:
+\[ \textbf{C}=\textbf{A}\pm\textbf{B}\qquad\Leftrightarrow\qquad c_{ij}=a_{ij}\pm b_{ij} \]
+~\\
+Multiplikation mit einem Skalar:
+\[ \textbf{B}=\lambda\cdot\textbf{A}\qquad\Leftrightarrow\qquad b_{ij}=\lambda\cdot a_{ij} \]
+~\\
+Matrizenmultiplikation einer $m\times n$-Matrix \textbf{A} und einer $n\times p$-Matrix \textbf{B}:
+\[ c_{ij} = \sum_{k=1}^{n}a_{ik}\cdot b_{kj} \qquad \textbf{C}_{m\times p} \]
+
+\section{Die Inverse Matrix}
+Definition:
+\[ \textbf{A}\cdot\textbf{A}^{-1} = \textbf{E} \]
+~\\
+Die Inverse Matrix existiert (ist \textit{invertierbar, regulär}), wenn:
+\[ \det\textbf{A}\neq 0 \]
