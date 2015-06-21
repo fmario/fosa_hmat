@@ -1,0 +1,97 @@
+\chapter{Vektroanalysis}
+\section{Felder}
+\subsection{Skalarfelder}
+Eine skalare Grösse $\Phi$ die jedem Raumpunkt $\vec{r}=\vec{r}(x,y,z)$
+zugeordnet ist, heisst \textit{Skalarfeld:}
+\[ \Phi = \Phi(\vec{r}) = \Phi(x,y,z) \]
+Wenn die Werte der Funktion $\Phi$ nur vom Abstand $r$ von einem Zentrum abhängen,
+heisst $\Phi(r)$ ein \textit{zentrales} oder \textit{radiales} Feld.\\
+\\
+Linien in 2D resp. Flächen in 3D auf denen das Skalarfeld konstant ist werden
+\textit{Äquipotentiallinien} resp. -flächen genannt (bzw. \textit{Niveaulinien/-fälchen}).
+
+\subsection{Vektorfelder}
+Einem Vektorfeld $\vec{F}$ ist jedem Raumpunkt $\vec{r}=(x,y,z)$ einen Vektor
+$\vec{F}(x,y,z)$ zugeordnet.
+\[ \vec{F} = \begin{pmatrix} F_x(x,y) \\ F_y(x,y) \end{pmatrix} \]
+~\\
+\paragraph{Gravitationsfeld}
+Die Kraft auf eine Masse $m$ an der Stelle $\vec{r}=(x,y,z)$ ist gegeben durch:
+\[ \vec{F}_m = -G\frac{M\cdot m}{r^2} \vec{e}_r \]
+~\\
+\begin{footnotesize}
+\begin{tabular}{ll}
+	$r=\sqrt{x^2+y^2+z^2}$:		& Abstand der beiden Masse\\
+	$\vec{e}_r=\frac{1}{\sqrt{x^2+y^2+z^2}}\begin{pmatrix}x\\y\\z\end{pmatrix}$:
+	& radialer Einheitsvektor von $M$ in Richtung $m$	\\
+	$G=6.67428\cdot 10^{-11}\,{\frac{m^3}{kg\cdot s^2}}$:	& universelle Gravitationskonstante\\
+	$M=5.97\cdot 10^{24}\,$kg:	&	Erdmasse
+\end{tabular}
+\end{footnotesize}
+
+\subsection{Arbeit und Wegintegrale}
+Gegeben sei ein Vektorfeld $\vec{F}$ und ein Weg $C$ paramtetrisiert durch
+$t\in[t_1,t_2] \mapsto \vec{\gamma}(t)$ mit Anfangspunkt $\vec{\gamma}(t_1)$ und
+Endpunkt $\vec{\gamma}(t_2)$, dann ist das \textit{skalare Kurvenintegral, Wegintegral}
+oder die \textit{Arbeit} des Vektorfeldes $\vec{F}$ längs der Kurve $C$ gegeben durch:
+\[ W = \int_C \vec{F}\cdot\di\vec{r}=\int_{t_1}^{t_2}\vec{F}(\vec{\gamma}(t)) \cdot 
+	\dot{\vec{\gamma}}(t)\di t \]
+Ist das Vozeichen von $W$ positiv, so wird Arbeit oder Energie gewonnen, ist es negativ,
+muss Arbeit oder Energie reingesteckt werden.
+
+\subsection{Parametrisierung einer Kurve}
+Ist die Kurve durch eine Funktionsvorschrift $y=f(x)$ gegeben, kann
+\[ \vec{y}(t) = \begin{pmatrix} t \\ f(t) \end{pmatrix} \]
+für die Kurve gewählt werden.
+\paragraph{Kreis mit Radius $r > 0$ im Ursprung:}
+\[ \vec{y}(t) = r\begin{pmatrix} \cos(t) \\ \sin(t) \end{pmatrix} \]
+wobei $t\in[0,2\pi]$
+\paragraph{Archimedische Spirale:}
+\[ \vec{y}(t) = \frac{a}{2\pi}t\begin{pmatrix} \cos(t) \\ \sin(t) \end{pmatrix} \]
+mit $t\in[0,k\cdot 2\pi]$, wobie $k$ der Anzahl Windungen und $a$ dem Abstand der einzelnen
+Windungen entspricht.
+\paragraph{Lemniskate ($\infty$):}
+\[ \vec{y}(t) = a\begin{pmatrix} \cos(t)\sqrt{2\cos(2t)} \\ \sin(t)\sqrt{2\cos(2t)} \end{pmatrix} \]
+
+
+\subsection{Gradient enes Skalarfeldes}
+Der Gradient eines Skalarfeldes $\Phi$ ist definiert als:
+\[ \grad\Phi(x,y,z)=\vec{\nabla}\Phi = \begin{pmatrix}
+	\pdifrac{\Phi}{x} \\ \pdifrac{\Phi}{y} \\ \pdifrac{\Phi}{z} \end{pmatrix} \]
+	
+\subsection{Konservative Felder}
+Fall es für ein Vektorfeld $\vec{F}$ ein Skalarfeld $\Phi$ mit $\nabla\Phi = \vec{F}$
+gibt, so ist das Linienintegral längs des Weges $C$ von $\vec{r}_1$ bis $\vec{r}_2$ nur
+vom Anfangs- und Endpunkt abhängig und ist gegeben durch:
+\[ \int_C \vec{F}\cdot\di\vec{r} = \int_C \vec{\nabla}\Phi\cdot\di\vec{r}
+	= \Phi(\vec{r}_2) - \Phi(\vec{r}_1) \]
+	
+\paragraph{Pfadunabhängigkeit:}
+Sind $C_1$ und $C_2$ verschiedene Pfade mit gleichem Start- und Endpunkt so ist:
+\[ \int_{C_1} \vec{\nabla}\Phi\cdot\di\vec{r} = \int_{C_2} \vec{\nabla}\Phi\cdot\di\vec{r} \]	
+
+\paragraph{Geschlossene Kurven:} Ist $C$ eine geschlossene Kurve dann gilt:
+\[ \oint_C \vec{\nabla}\Phi\cdot\di\vec{r} =0 \]
+
+\subsection{Kriterium für konservative Felder}
+Das Vektorfeld
+\[ \vec{F} = \begin{pmatrix} F_x(x,y) \\ F_y(x,y) \end{pmatrix} \]
+ist konservativ, wenn
+\[ \pdifrac{F_x}{y} = \pdifrac{F_y}{x} \]
+erfüllt ist. Das Potential $\Phi$ ergibt sich durch
+\[\begin{aligned}
+		\Phi(x,y) &= \int F_x(x,y)\di x +f_1(y)\\
+		\Phi(x,y) &= \int F_y(x,y)\di y +f_2(x)\\
+\end{aligned}\]
+Die unbekannten Funktionen $f_1(y)$ und $f_2(x)$ erhält man durch Vergleichen der beiden
+Integrale.
+
+\paragraph{Prüfen mit $\rot$}~\\
+Ein Vektorfeld $\vec{F}$ ist konservativ, falls die Rotation verschwindet
+\[ \rot\vec{F} = \vec{0} \]
+\[ \rot\vec{F}(x,y,z) = \begin{pmatrix}
+	\pdifrac{F_z}{y} - \pdifrac{F_y}{z}\\
+	\pdifrac{F_x}{z} - \pdifrac{F_z}{x}\\
+	\pdifrac{F_y}{x} - \pdifrac{F_x}{y}\\
+	\end{pmatrix} \]
+Für den 2D Fall kann die $z$-Komponente auf Null gesetzt werden.
