@@ -1,0 +1,77 @@
+\chapter{Fourierreihen}
+Trigonometrische Reihe:
+\[ \frac{a_0}{2} + \sum_{k=1}^{\infty}\left( a_k\cos kx + b_k\sin kx \right) \]
+
+\section{$2\pi$-periodische Funktionen}
+\subsection{Orthogonalitätsrelationen}
+\[ \int_{0}^{2\pi}\cos kx\cos lx\di x = \left\lbrace \begin{matrix}
+	\pi & (k=l) \\ 0 & (k\neq l) \end{matrix} \right. \]
+\[ \int_{0}^{2\pi}\sin kx\cos lx\di x = 0 \]
+\[ \int_{0}^{2\pi}\sin kx\sin lx\di x = \left\lbrace \begin{matrix}
+	\pi & (k=l) \\ 0 & (k\neq l) \end{matrix} \right. \]
+	
+\subsection{Berechnung der Fourier-Koeffizienten}
+\[ a_k = \frac{1}{\pi}\int_{0}^{2\pi}f(x)\cos(kx)\di x \qquad \text{für }k=0,1,2,\ldots  \]
+\[ b_k = \frac{1}{\pi}\int_{0}^{2\pi}f(x)\sin(kx)\di x \qquad \text{für }k=1,2,3,\ldots  \]
+
+\section{$T$-periodische Funktionen}
+Fourierreihe einer Funktion $f$ mit Periode $T$:
+\[ f(x) = \frac{a_0}{2} + \sum_{k=1}^{\infty}\left( a_k\cos k\omega_0x + b_k\sin k\omega_0x \right) \]
+Berechnung der Koeffizienten:
+\[ a_k = \frac{2}{T}\int_{T}f(x)\cos(k\omega_0x)\di x \qquad \text{für }k=0,1,2,\ldots  \]
+\[ b_k = \frac{2}{T}\int_{T}f(x)\sin(k\omega_0x)\di x \qquad \text{für }k=1,2,3,\ldots  \]
+mit
+\[ \omega_0=\frac{2\pi}{T} \]
+
+\section{Spezielles}
+\subsection{Konvergenz}
+Die Fourierreihe einer $2\pi$-periodischen Funktion $f$ existiert:
+\begin{itemize}
+	\item Das Grundintervall $[0,2\pi]$ lässt sich in endlich viele Teilintervalle zerlegen,
+	auf denen $f$ stetig und monoton ist.
+	\item An jeder Unstetigkeitsstelle $x_0$ existiert der rechts- und linksseitige
+	Grenzwert.
+\end{itemize}
+An Unstetigkeitsstellen konvergiert die Reihe gegen den arithmetischen Mittelwert des
+rechts- und linksseitigen Grenzwerts:
+\[ \frac{a_0}{2} + \sum_{k=1}^{\infty}\left( a_k\cos kx + b_k\sin kx \right) = \left\lbrace
+	\begin{matrix} \frac{f(x^-)+f(x^+)}{2} & f\text{ in }x\text{ nicht stetig.}\\
+	 f(x) & \text{sonst.}\end{matrix}\right. \]
+
+\subsection{Gerade und ungerade Funktionen}
+Eine \textit{gerade Funktion} ($f(-x)=f(x)$) enthält nur Kosinusanteile:
+\[ f(x) = \frac{a_0}{2} + \sum_{k=1}^{\infty} a_k\cos kx \]
+\[ a_k = \frac{2}{\pi}\int_{0}^{\pi}f(x)\cos(kx)\di x \qquad \text{für }k=0,1,2,\ldots  \]
+bzw.:
+\[ f(x) = \frac{a_0}{2} + \sum_{k=1}^{\infty}a_k\cos k\omega_0x \]
+\[ a_k = \frac{4}{T}\int_{\frac{T}{2}}f(x)\cos(k\omega_0x)\di x \qquad \text{für }k=0,1,2,\ldots  \]
+~\\
+Eine \textit{ungerade Funktion} ($f(-x)=-f(x)$) enthält nur Sinusanteile:
+\[ f(x) = \sum_{k=1}^{\infty} b_k\sin kx \]
+\[ b_k = \frac{2}{\pi}\int_{0}^{\pi}f(x)\sin(kx)\di x \qquad \text{für }k=1,2,3,\ldots  \]
+bzw.:
+\[ f(x) = \sum_{k=1}^{\infty}b_k\sin k\omega_0x \]
+\[ b_k = \frac{4}{T}\int_{\frac{T}{2}}f(x)\sin(k\omega_0x)\di x \qquad \text{für }k=1,2,3\ldots  \]
+
+\section{Energiesatz}
+\[ W=\int_{0}^{T}[f(t)]^2\di t = \frac{T}{2}\left[ \frac{a_0^2}{2} + \sum_{k=1}^{\infty}
+	\left(a_k^2+b_k^2\right) \right] \]
+Energie einer rechteckförmigen Welle:
+\[ W=\frac{8T}{\pi^2}\sum_{k=0}^{\infty}\frac{1}{(2k+1)^2} \]
+
+\section{Komplexe Fourierreihe}
+Komplexe Fourierreihe einer $2\pi$-periodischen Funktion $f$:
+\[ f(x) = \sum_{k=-\infty}^{\infty}c_k \e^{\im kx} \]
+\[ c_k = \frac{1}{2\pi}\int_{0}^{2\pi}f(x)\e^{-\im kx}\di x \qquad \text{für }k=0,\pm1,\pm2,\ldots \]
+Berechnung aus reelen Koeffizienten:
+\[ c_k = \frac{1}{2}(a_k-\im b_k) \qquad,k=1,2,3,\ldots \]
+\[ c_{-k} = \frac{1}{2}(a_k+\im b_k) \qquad,k=1,2,3,\ldots \]
+\[ c_0 = \frac{a_0}{2} \]
+Umkehrung:
+\[ a_0 = 2c_0 \]
+\[ a_k = 2\cdot\Re\lbrace c_k\rbrace \]
+\[ b_k = -2\cdot\Im\lbrace c_k\rbrace \]
+~\\
+Komplexe Fourierreihe einer $T$-periodischen Funktion $f$:
+\[ f(x) = \sum_{k=-\infty}^{\infty}c_k \e^{\im k\omega_0x} \]
+\[ c_k = \frac{1}{T}\int_{T}f(x)\e^{-\im k\omega_0x}\di x \qquad \text{für }k=0,\pm1,\pm2,\ldots \]
