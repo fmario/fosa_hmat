@@ -4,7 +4,7 @@
 *.out
 *.tmp
 *.bak
-tex/fosahmat_main.pdf
+fosahmat_main.pdf
 *.swp
 
 fosahmat_main.synctex.gz
